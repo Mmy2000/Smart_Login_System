@@ -1,32 +1,86 @@
-body {
-    background: #24353f;
+*{
+    
+    box-sizing: border-box;
     font-family: 'Titillium Web', sans-serif;
 }
-
-#home {
-    height: 75vh;
+.w-65{
+    width: 65%;
 }
-
-h1 {
+.bg-22333c{
+    background-color: #22333c;
+}
+.bg-212529{
+    background-color: #212529;
+}
+h1{
     color: #17a2b8;
+    font-size: 40px;
+    margin-bottom:8px ;
+}
+.smart-app{
+    width: 75%;
+    margin :10px auto;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login{
+    background: #24353f;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    width: 70%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+input{
+    margin: 10px 0;
+    padding: 6px 12px ;
+    background-color: #22333c;
+    outline: none;
+    border: 1.5px solid white;
+    border-radius: 15px;
+    color: white;
+
+}
+.login button{
+    margin: 20px 0;
+    font-size: 16px !important;
+  
+}
+input::placeholder{
+    color: rgb(211, 205, 205);
+    font-weight: lighter;
+}
+input:focus{
+    border-color:#48d2ee !important ;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration-line: underline;
+    color: white;
 }
 
-.group {
-    box-shadow: -5px 2px 54px -9px rgba(0, 0, 0, 1);
+.logo a {
+    font-size: 20px;
+
+}
+.logo a:hover {
+    text-decoration-line: none;
+
 }
 
-input,
-textarea {
-    background-color: transparent !important;
-    color: #fff !important;
+.home {
+    height: 80%;
 }
-
-input::placeholder,
-textarea::placeholder {
-    color: rgb(182, 182, 182) !important;
+.toggler-icon{
+    color: #ffffff80;
 }
-
-input:focus,
-textarea:focus {
-    box-shadow: 0 0 0 0 transparent !important;
+.border-ffffff80{
+    border-color: #ffffff80;
 }

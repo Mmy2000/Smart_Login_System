@@ -8,35 +8,21 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
 </head>
-<body>
-    <!-- <span class="d-none" id="username"></span>
-    <div class="container my-5 text-center ">
-        <div class="group m-auto w-75 p-5">
-            <h1>Smart Login System</h1>
-
-            <input id="signinEmail" class="form-control my-3" placeholder="Enter your email" type="text">
-            <input id="signinPassword" class="form-control my-3" placeholder="Enter your password" type="password">
-            <p id="test2"></p>
-
-            <button onclick="login()"  class="btn btn-outline-info w-100 my-3">Login</button>
-            <p class="text-white">Don’t have an account? <a class='text-white' href='/signup'>Sign Up</a></p>
-
+<body class=" bg-22333c ">
+        <div class="smart-app ">
+            <div class=" login shadow-lg">
+                <h1 class=" text-capitalize ">smart login system</h1>
+                <div action="" class="form d-flex flex-column" onsubmit="onload()">
+                    <input class="border border-1 rounded-2 " type="email" id="signEmail" placeholder="Enter your email">
+                    <input  class="border border-1 rounded-2 " type="password" id="signPass" placeholder="Enter your password">
+                    <div id="result-sign">
+                        <span></span>
+                    </div>
+                    <button id="submit" onclick="searchUser()" class="btn btn-outline-info text-decoration-none"> Login</button>
+                    <label for=""> Don’t have an account? <a href="signup.html">Sign Up</a></label>
+                </div>
+            </div>
         </div>
-    </div> -->
-    <span class="d-none" id="username"></span>
-    <div class="container my-5 text-center ">
-        <div class="group m-auto w-75 p-5">
-            <h1>Smart Login System</h1>
-
-            <input id="signinEmail" class="form-control my-3" placeholder="Enter your email" type="text">
-            <input id="signinPassword" class="form-control my-3" placeholder="Enter your password" type="password">
-            <p id="incorrect"></p>
-
-            <button onclick="login()" class="btn btn-outline-info w-100 my-3">Login</button>
-            <p class="text-white">Don’t have an account? <a class='text-white' href='/signup'>Sign Up</a></p>
-
-        </div>
-    </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>

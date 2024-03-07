@@ -1,235 +1,123 @@
-// var signupName = document.getElementById("signupName")
-// var signupEmail = document.getElementById("signupEmail")
-// var signupPassword = document.getElementById("signupPassword")
-// var signinEmail = document.getElementById("signinEmail")
-// var signinPassword = document.getElementById("signinPassword")
-// var arrUser ;
+var userNameInput = document.getElementById("userName");
+var userEmailInput = document.getElementById("userEmail");
+var userPassInput = document.getElementById("userPass");
 
-// var pathparts = location.pathname.split('/');
-// var baseURL = ''
-// for (var i = 0; i < pathparts.length - 1; i++) {
-//     baseURL += '/' + pathparts[i]
-// }
-// console.log(baseURL);
+var signEmailInput = document.getElementById("signEmail");
+var signPassInput = document.getElementById("signPass");
 
-// // to say welcome in home page
-// var username = localStorage.getItem('sessionUsername')
-// if (username) {
-//     document.getElementById('username').innerHTML = "Welcome " + username
-// }
+var users;
 
 
-// if (localStorage.getItem("users")) {
-//     arrUser = JSON.parse(localStorage.getItem("users"));
-// } else {
-//     arrUser = [];
-// }
-
-// function isEmpty() {
-
-//     if (signupName.value == "" || signupEmail.value == "" || signupPassword.value == "") {
-//         return false
-//     } else {
-//         return true
-//     }
-// }
-
-// function isEmailExist() {
-//     for (var i = 0; i < arrUser.length; i++) {
-//         if (arrUser[i].email.toLowerCase() == signupEmail.value.toLowerCase()) {
-//             return false
-//         }
-//     }
-// }
-
-// function register() {
-//     if (isEmpty() == false) {
-//         document.getElementById('test').innerHTML = '<span class="text-danger m-3">All fields is required</span>'
-//         return false
-//     }
-//     var users = {
-//         'fName':signupName.value,
-//         'email':signupEmail.value,
-//         'password':signupPassword.value,
-//     }
-//     if (arrUser.length == 0) {
-//         arrUser.push(users);
-//         localStorage.setItem("users", JSON.stringify(arrUser))
-//         document.getElementById('test').innerHTML = '<span class="text-success m-3">Success</span>'
-//         console.log(arrUser);
-//         return true
-//     }
-//     if (isEmailExist() == false) {
-//         document.getElementById('test').innerHTML = '<span class="text-danger m-3">email already exists</span>'
-//     }else {
-//         arrUser.push(users)
-//         localStorage.setItem('users', JSON.stringify(arrUser))
-//         document.getElementById('test').innerHTML = '<span class="text-success m-3">Success</span>'
-//         console.log(arrUser);
-//     }
-// }
-
-// function isLoginEmpty() {
-
-//     if (signinPassword.value == "" || signinEmail.value == "") {
-//         return false
-//     } else {
-//         return true
-//     }
-// }
-// function login() {
-//     if (isLoginEmpty() == false) {
-//         document.getElementById('test2').innerHTML = '<span class="text-danger m-3">All fields is required</span>'
-//         return false
-//     }
-//     var password = signinPassword.value
-//     var email = signinEmail.value
-//     for (let i = 0; i < arrUser.length; i++) {
-//         if (arrUser[i].email.toLowerCase() == email.toLowerCase() && arrUser[i].password.toLowerCase() == password.toLowerCase()) {
-//             localStorage.setItem('sessionUsername', arrUser[i].name)
-//             if (baseURL == '/') {
-//                 location.replace('https://' + location.hostname + '/home.html')
-
-//             } else {
-//                 location.replace(baseURL + '/home.html')
-
-//             }
-//         }else{
-//             document.getElementById('test2').innerHTML = '<span class="p-2 text-danger">incorrect email or password</span>'
-//         }
-        
-//     }
-// }
-
-// all inputs
-var signupName = document.getElementById('signupName')
-var signupEmail = document.getElementById('signupEmail')
-var signupPassword = document.getElementById('signupPassword')
-var signinEmail = document.getElementById('signinEmail')
-var signinPassword = document.getElementById('signinPassword')
-    // to get base url (localhost)
-var pathparts = location.pathname.split('/');
-var baseURL = ''
-for (var i = 0; i < pathparts.length - 1; i++) {
-    baseURL += '/' + pathparts[i]
-}
-console.log(baseURL);
-
-// to say welcome in home page
-var username = localStorage.getItem('sessionUsername')
-if (username) {
-    document.getElementById('username').innerHTML = "Welcome " + username
-}
-
-var signUpArray = []
-if (localStorage.getItem('users') == null) {
-    signUpArray = []
+if (localStorage.getItem("usersList") == null) {
+    var users = [];
 } else {
-    signUpArray = JSON.parse(localStorage.getItem('users'))
+    users = JSON.parse(localStorage.getItem("usersList"));
 }
 
-
-
-
-//for check inputs is empty or not
-function isEmpty() {
-
-    if (signupName.value == "" || signupEmail.value == "" || signupPassword.value == "") {
-        return false
-    } else {
-        return true
-    }
-}
-
-
-
-
-
-// for check email is exist
-function isEmailExist() {
-    for (var i = 0; i < signUpArray.length; i++) {
-        if (signUpArray[i].email.toLowerCase() == signupEmail.value.toLowerCase()) {
-            return false
-        }
-    }
-}
-
-
-
-
-
-function signUp() {
-    if (isEmpty() == false) {
-        document.getElementById('exist').innerHTML = '<span class="text-danger m-3">All inputs is required</span>'
-        return false
-    }
-    // to store all value as object
-    var signUp = {
-        name: signupName.value,
-        email: signupEmail.value,
-        password: signupPassword.value,
-    }
-    if (signUpArray.length == 0) {
-        signUpArray.push(signUp)
-        localStorage.setItem('users', JSON.stringify(signUpArray))
-        document.getElementById('exist').innerHTML = '<span class="text-success m-3">Success</span>'
-        return true
-    }
-    if (isEmailExist() == false) {
-        document.getElementById('exist').innerHTML = '<span class="text-danger m-3">email already exists</span>'
-
-    } else {
-        signUpArray.push(signUp)
-        localStorage.setItem('users', JSON.stringify(signUpArray))
-        document.getElementById('exist').innerHTML = '<span class="text-success m-3">Success</span>'
-
-    }
-
-
-}
-
-
-
-
-// ============= for login================
-//for check inputs is empty or not
-function isLoginEmpty() {
-
-    if (signinPassword.value == "" || signinEmail.value == "") {
-        return false
-    } else {
-        return true
-    }
-}
-
-function login() {
-    if (isLoginEmpty() == false) {
-        document.getElementById('incorrect').innerHTML = '<span class="text-danger m-3">All inputs is required</span>'
-        return false
-    }
-    var password = signinPassword.value
-    var email = signinEmail.value
-    for (var i = 0; i < signUpArray.length; i++) {
-        if (signUpArray[i].email.toLowerCase() == email.toLowerCase() && signUpArray[i].password.toLowerCase() == password.toLowerCase()) {
-            localStorage.setItem('sessionUsername', signUpArray[i].name)
-            if (baseURL == '/') {
-                location.replace('https://' + location.hostname + '/home.html')
-
-            } else {
-                location.replace(baseURL + '/home.html')
-
-            }
+function addUser() {
+    if (!checkIsEmpty()) {
+        if (exist()) {
+            displayExist();
         } else {
-            document.getElementById('incorrect').innerHTML = '<span class="p-2 text-danger">incorrect email or password</span>'
+            var user = {
+                name: userNameInput.value,
+                email: userEmailInput.value,
+                password: userPassInput.value,
+            }
+            users.push(user);
+            localStorage.setItem("usersList", JSON.stringify(users));
+            displaySucess()
+
         }
+
+    } else {
+        displayRequired();
     }
 
+
+};
+
+function welcome() {
+    document.getElementById("welcome").innerHTML = `Welcome ${JSON.parse(localStorage.getItem("homeList"))}`;
+};
+
+function exist() {
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email == userEmailInput.value) {
+            return true;
+        }
+    }
+    return false;
 }
 
+function existLogin() {
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email == signEmailInput.value && users[i].password == signPassInput.value) {
+            console.log(users[i].name);
+            var name = users[i].name;
+            localStorage.setItem("homeList", JSON.stringify(name));
+            location.replace("home.html");
 
+            return true;
+        }
+    }
+};
 
+function searchUser() {
+    if (checkIsEmptySign()) {
+        displayRequiredSign();
+    } else {
+        if (existLogin()) {
 
-// for logout
-function logout() {
-    localStorage.removeItem('sessionUsername')
+        } else {
+            displayIncorrect();
+        }
+
+    }
+
+};
+
+function clearForm() {
+    userNameInput.value = "";
+    userEmailInput.value = "";
+    userPassInput.value = "";
+
+};
+
+function checkIsEmpty() {
+    if (userNameInput.value != "" && userPassInput.value != "" && userEmailInput.value != "") {
+        return false;
+    } else {
+        return true;
+    }
 }
+
+function checkIsEmptySign() {
+    if (signEmailInput.value == "" || signPassInput.value == "") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// email already exists
+function displayRequired() {
+    document.getElementById("required").innerHTML = `<span class=' text-danger'>All inputs is required</span>`;
+};
+
+function displayExist() {
+    document.getElementById("required").innerHTML = `<span class=' text-danger'>email already exists</span>`;
+
+};
+
+function displayIncorrect() {
+    document.getElementById("result-sign").innerHTML = `<span class=' text-danger'>incorrect email or password</span>`;
+};
+
+function displayRequiredSign() {
+    document.getElementById("result-sign").innerHTML = `<span class=' text-danger'>All inputs is required</span>`;
+};
+
+function displaySucess() {
+    document.getElementById("required").innerHTML = `<span class=' text-success'>Success</span>`;
+};
