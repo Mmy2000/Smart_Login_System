@@ -35,22 +35,16 @@ function register() {
     if (arrUser.length == 0) {
         arrUser.push(users);
         localStorage.setItem("users", JSON.stringify(arrUser))
-        document.getElementById('exist').innerHTML = '<span class="text-success m-3">Success</span>'
+        document.getElementById('test').innerHTML = '<span class="text-success m-3">Success</span>'
         console.log(arrUser);
-        clear();
         return true
     }
     if (isEmailExist() == false) {
-        document.getElementById('exist').innerHTML = '<span class="text-danger m-3">email already exists</span>'
+        document.getElementById('test').innerHTML = '<span class="text-danger m-3">email already exists</span>'
     }else {
         arrUser.push(signUp)
         localStorage.setItem('users', JSON.stringify(arrUser))
-        document.getElementById('exist').innerHTML = '<span class="text-success m-3">Success</span>'
+        document.getElementById('test').innerHTML = '<span class="text-success m-3">Success</span>'
         console.log(arrUser);
     }
-}
-function clear() {
-    signupName.value = ""
-    signupEmail.value = ""
-    signupPassword.value = ""
 }
