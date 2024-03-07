@@ -27,6 +27,10 @@ function isEmailExist() {
 }
 
 function register() {
+    if (isEmpty() == false) {
+        document.getElementById('test').innerHTML = '<span class="text-danger m-3">All fields is required</span>'
+        return false
+    }
     var users = {
         'fName':signupName.value,
         'email':signupEmail.value,
