@@ -14,7 +14,7 @@ if (localStorage.getItem("usersList") == null) {
     users = JSON.parse(localStorage.getItem("usersList"));
 }
 
-function addUser() {
+function register() {
     if (!checkIsEmpty()) {
         if (exist()) {
             displayExist();
@@ -63,7 +63,7 @@ function existLogin() {
     }
 };
 
-function searchUser() {
+function login() {
     if (checkIsEmptySign()) {
         displayRequiredSign();
     } else {
