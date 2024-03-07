@@ -1,6 +1,8 @@
 var signupName = document.getElementById("signupName")
 var signupEmail = document.getElementById("signupEmail")
 var signupPassword = document.getElementById("signupPassword")
+var signinEmail = document.getElementById("signinEmail")
+var signinPassword = document.getElementById("signinPassword")
 var arrUser ;
 
 if (localStorage.getItem("users")) {
@@ -50,5 +52,14 @@ function register() {
         localStorage.setItem('users', JSON.stringify(arrUser))
         document.getElementById('test').innerHTML = '<span class="text-success m-3">Success</span>'
         console.log(arrUser);
+    }
+}
+
+function isLoginEmpty() {
+
+    if (signinPassword.value == "" || signinEmail.value == "") {
+        return false
+    } else {
+        return true
     }
 }
