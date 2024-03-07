@@ -9,16 +9,45 @@ if (localStorage.getItem("users")) {
     arrUser = [];
 }
 
+function isEmpty() {
+
+    if (signupName.value == "" || signupEmail.value == "" || signupPassword.value == "") {
+        return false
+    } else {
+        return true
+    }
+}
+
+function isEmailExist() {
+    for (var i = 0; i < arrUser.length; i++) {
+        if (arrUser[i].email.toLowerCase() == signupEmail.value.toLowerCase()) {
+            return false
+        }
+    }
+}
+
 function register() {
     var users = {
         'fName':signupName.value,
         'email':signupEmail.value,
         'password':signupPassword.value,
     }
-    arrUser.push(users);
-    localStorage.setItem("users", JSON.stringify(arrUser))
-    console.log(arrUser);
-    clear();
+    if (arrUser.length == 0) {
+        arrUser.push(users);
+        localStorage.setItem("users", JSON.stringify(arrUser))
+        document.getElementById('exist').innerHTML = '<span class="text-success m-3">Success</span>'
+        console.log(arrUser);
+        clear();
+        return true
+    }
+    if (isEmailExist() == false) {
+        document.getElementById('exist').innerHTML = '<span class="text-danger m-3">email already exists</span>'
+    }else {
+        arrUser.push(signUp)
+        localStorage.setItem('users', JSON.stringify(arrUser))
+        document.getElementById('exist').innerHTML = '<span class="text-success m-3">Success</span>'
+        console.log(arrUser);
+    }
 }
 function clear() {
     signupName.value = ""
